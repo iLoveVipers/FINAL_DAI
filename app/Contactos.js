@@ -29,9 +29,10 @@ export default function Contactos() {
                     return (
                         <View style={styles.container}>
                             <Text style={styles.texto}>Nombre del contacto:</Text>
-                            <Text style={styles.texto}>{item.name}</Text>
+                            <Text style={styles.texto1}>{item.name}</Text>
                             <Text style={styles.texto}>Numero del contacto:</Text>
-                            <Text style={styles.texto}>{item.phoneNumbers && item.phoneNumbers[0] && item.phoneNumbers[0].number}</Text>
+                            <Text style={styles.texto1}>{item.phoneNumbers && item.phoneNumbers[0] && item.phoneNumbers[0].number}</Text>
+                            <Text>--------------------------------</Text>
                         </View>
                     );
                 }}
@@ -46,9 +47,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 4,
+        marginTop: 6,
+        marginBottom: 6,
+        
     },
     texto: {
         margin: 2,
+        backgroundColor: 'lightgrey',
+    },
+    texto1: {
+        margin: 2,
+        color: 'red',
     }
 });

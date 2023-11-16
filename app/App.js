@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './navigation/Navigation';
 
 // expo install expo-sms
 

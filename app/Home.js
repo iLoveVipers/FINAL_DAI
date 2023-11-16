@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Vibration, Text, TextInput, Button, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Vibration,Alert,Modal, Text, TextInput, Button, View, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
+
 import * as SMS from 'expo-sms';
 import * as Print from 'expo-print';
 import * as FileSystem from 'expo-file-system';
 import * as Contacts from 'expo-contacts';
+
 
 // expo install expo-sms
 
@@ -71,7 +73,7 @@ export default function Home({navigation}) {
 
   const showRecipients = () => {
     if (recipients.length === 0) {
-      return <Text>No hay attachments agregados!</Text>
+      return <Text>No hay numeros agregados!</Text>
     }
 
     return recipients.map((recipient, index) => {
@@ -98,15 +100,14 @@ export default function Home({navigation}) {
       onChangeText={(value) => setMessage(value)}
     />
   
-    <Text style={styles.recipientsTitle}>Attachments:</Text>
+    <Text style={styles.recipientsTitle}>Destinatario:</Text>
     {showRecipients()}
   
-    <Button title="Limpiar" onPress={() => setRecipients([])} />
+    <Button style={styles.btn} title="Limpiar" onPress={() => setRecipients([])} />
 
-    <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate("Contactos")}>
-                    <Text style={styles.texto}>Ver tus contactos</Text>
-                </TouchableOpacity>
-  
+    <Button style={styles.btn} title='Ver mis contactos' onPress={() => navigation.navigate("Contactos")} />
+    
+
     {isAvailable ? (
       <Button style={styles.btn} title="Enviar SMS" onPress={sendSms} />
     ) : (
@@ -150,7 +151,7 @@ const styles = {
   },
   btn: {
     borderRadius: 20,
-    backgroundColor: '#5e318f',
+    backgroundColor: '#fcfcfc',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -160,7 +161,6 @@ const styles = {
     color: '#ffffff',
     padding: 10,
     margin: '1rem',
-    marginBottom: 30,
   borderRadius: "50px",
   shadowColor: '#000000',
   shadowOffset: {width: 1, height: 5},
