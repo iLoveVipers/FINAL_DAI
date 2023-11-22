@@ -106,6 +106,7 @@ export default function Home({navigation}) {
     <Button style={styles.btn} title="Limpiar" onPress={() => setRecipients([])} />
 
     <Button style={styles.btn} title='Ver mis contactos' onPress={() => navigation.navigate("Contactos")} />
+    <Button style={styles.btn} title='Ver ClipBoard' onPress={() => navigation.navigate("Clipboard")} />
     
 
     {isAvailable ? (

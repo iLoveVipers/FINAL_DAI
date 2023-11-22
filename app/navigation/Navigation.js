@@ -3,8 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import App from '../App';
 import Home from '../Home';
-import Modal from '../Modal';
+
+
 import Contactos from '../Contactos';
+import ClipBoard from '../Clipboard';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +18,8 @@ const AppNavigator = () => {
             <Stack.Navigator>
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Contactos" component={Contactos} />
-                <Stack.Screen name="Modal" component={Modal}/>   
+                <Stack.Screen name="Clipboard" component={ClipBoard} />
+                
             </Stack.Navigator>
         </NavigationContainer>
     );
